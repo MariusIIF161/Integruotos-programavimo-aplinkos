@@ -43,7 +43,7 @@ namespace integruotos_programavimo_aplinkos
                     this.meniu();
                     break;
                 case 5:
-                    this.atsitiktiniaiPazymiai();
+                    this.atsitiktiniaiPazymiai(this.pasirinktiStudenta());
                     this.meniu();
                     break;
                 case 0:
@@ -132,9 +132,17 @@ namespace integruotos_programavimo_aplinkos
 
         }
 
-        public void atsitiktiniaiPazymiai()
+        public void atsitiktiniaiPazymiai(int stud)
         {
-
+            Random rnd = new Random();
+            this.sarasas[stud - 1].setEgzaminas(rnd.Next(1, 11));
+            Console.WriteLine("Kiek namu darbu pazymiu sugeneruoti? [1-100]");
+            int a = int.Parse(Console.ReadLine());
+            while(a > 0)
+            {
+                this.sarasas[stud - 1].setNewPazimys(rnd.Next(1, 11));
+                a--; 
+            }
         }
     }
 }

@@ -31,15 +31,15 @@ namespace integruotos_programavimo_aplinkos
                     this.meniu();
                     break;
                 case 2:
-                    this.isvestiSarasa();
+                    this.isvestiSarasa(this.medOrVid());
                     this.meniu();
                     break;
                 case 3:
-                    this.ivestiEgzamina();
+                    this.ivestiEgzamina(this.pasirinktiStudenta());
                     this.meniu();
                     break;
                 case 4:
-                    this.ivestiNamuDarbus();
+                    this.ivestiNamuDarbus(this.pasirinktiStudenta());
                     this.meniu();
                     break;
                 case 5:
@@ -62,29 +62,73 @@ namespace integruotos_programavimo_aplinkos
             this.sarasas.Add(new Studentas());
         }
 
-        public void isvestiSarasa()
+        public String medOrVid()
+        {
+            Console.WriteLine("Pasirinkite isvesti pagal mediana ar vidurki (ivedus bloga skaiciu automatiskai pasirenkamas vidurkis)");
+            Console.WriteLine("1. Mediana");
+            Console.WriteLine("2. Vidurki");
+            if (Console.ReadLine() == "1") return "Med";
+            return "Vid";
+        }
+
+        public void isvestiSarasa(string formatas)
         {
             int a = 1;
             foreach(var stud in this.sarasas)
             {
-                Console.WriteLine(a + ". " + stud.getVardas() + " " + stud.getPavarde() + " " + stud.getEgzaminas());
+                // galutinis = 0.3 * (vidurkis arba mediana) + 0.7 * egzaminas
+                double galutinis = stud.getEgzaminas() * 0.7 + 0.3 * this.vidurkis(formatas, stud.getND());
+                Console.WriteLine(a + ". " + stud.getVardas() + " " + stud.getPavarde() + " " + galutinis);
                 a++;
             }
         }
 
-        public void ivestiEgzamina()
+        public double vidurkis(string formatas, List<int> nd)
         {
-            this.isvestiSarasa();
+            double vidurkis = 0;
+            int sk = nd.Count();
+            if (formatas == "Med") {
+                nd.Sort();
+                if(sk % 2 == 0)
+                {
+                    int temp = nd[sk / 2] + nd[sk / 2 - 1];
+                    vidurkis = temp / 2;
+                } else
+                {
+                    int temp = nd[sk / 2 + 1];
+                    vidurkis = temp;
+                }   
+            } else {
+                foreach (var paz in nd)
+                {
+                    vidurkis += paz;
+                }
+                if (sk != 0) vidurkis = vidurkis / sk;
+            }
+            return vidurkis;
+        }
+
+        public int pasirinktiStudenta()
+        {
+            this.isvestiSarasa("Vid");
             Console.WriteLine("Pasirinkite studenta");
             int b = int.Parse(Console.ReadLine());
+            return b;
+        }
+
+        public void ivestiEgzamina(int stud)
+        {
             Console.WriteLine("Iveskite egzamino pazymi [1-10]");
             int a = int.Parse(Console.ReadLine());
-            this.sarasas[b - 1].setEgzaminas(a);
+            this.sarasas[stud - 1].setEgzaminas(a);
 
         }
 
-        public void ivestiNamuDarbus()
+        public void ivestiNamuDarbus(int stud)
         {
+            Console.WriteLine("Irasikyte namu darbo pazymy [1-10]");
+            int a = int.Parse(Console.ReadLine());
+            this.sarasas[stud - 1].setNewPazimys(a);
 
         }
 

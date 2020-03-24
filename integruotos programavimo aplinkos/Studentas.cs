@@ -42,5 +42,15 @@ namespace integruotos_programavimo_aplinkos
             return this.egzaminas;
         }
 
+        public void setNewPazimys(int a)
+        {
+            if(a > 0 && a <= 10) this.nd.Add(a);
+        }
+
+        public List<int> getND()
+        {
+            return this.nd;
+        }
+
     }
 }

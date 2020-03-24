@@ -64,14 +64,22 @@ namespace integruotos_programavimo_aplinkos
 
         public void isvestiSarasa()
         {
+            int a = 1;
             foreach(var stud in this.sarasas)
             {
-                Console.WriteLine(stud.getVardas() + " " + stud.getPavarde());
+                Console.WriteLine(a + ". " + stud.getVardas() + " " + stud.getPavarde() + " " + stud.getEgzaminas());
+                a++;
             }
         }
 
         public void ivestiEgzamina()
         {
+            this.isvestiSarasa();
+            Console.WriteLine("Pasirinkite studenta");
+            int b = int.Parse(Console.ReadLine());
+            Console.WriteLine("Iveskite egzamino pazymi [1-10]");
+            int a = int.Parse(Console.ReadLine());
+            this.sarasas[b - 1].setEgzaminas(a);
 
         }
 

@@ -32,6 +32,15 @@ namespace integruotos_programavimo_aplinkos
             return this.pavarde;
         }
 
+        public void setEgzaminas(int a)
+        {
+            if(a > 0 && a <= 10) this.egzaminas = a;
+        }
+
+        public int getEgzaminas()
+        {
+            return this.egzaminas;
+        }
 
     }
 }

@@ -19,6 +19,17 @@ namespace integruotos_programavimo_aplinkos
             vardas = Console.ReadLine();
             Console.WriteLine("Iveskite pavarde");
             pavarde = Console.ReadLine();
+            nd = new List<int>();
+        }
+
+        public String getVardas()
+        {
+            return this.vardas;
+        }
+
+        public String getPavarde()
+        {
+            return this.pavarde;
         }
 
 

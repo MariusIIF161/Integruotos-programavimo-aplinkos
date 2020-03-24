@@ -8,10 +8,10 @@ namespace integruotos_programavimo_aplinkos
 {
     class StudentasController
     {
-        private List<Studentas> sarasas;
+        public List<Studentas> sarasas;
 
         public StudentasController() {
-            List <Studentas> sarasas = new List<Studentas>();
+            sarasas = new List<Studentas>();
         }
 
         public void meniu()
@@ -59,12 +59,15 @@ namespace integruotos_programavimo_aplinkos
 
         public void pridetiStudenta()
         {
-
+            this.sarasas.Add(new Studentas());
         }
 
         public void isvestiSarasa()
         {
-
+            foreach(var stud in this.sarasas)
+            {
+                Console.WriteLine(stud.getVardas() + " " + stud.getPavarde());
+            }
         }
 
         public void ivestiEgzamina()

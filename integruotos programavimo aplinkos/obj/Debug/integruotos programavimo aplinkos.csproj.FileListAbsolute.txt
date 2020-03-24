@@ -1,0 +1,6 @@
+C:\Users\Marius\Desktop\Projektai\Test\integruotos programavimo aplinkos\integruotos programavimo aplinkos\bin\Debug\integruotos programavimo aplinkos.exe.config
+C:\Users\Marius\Desktop\Projektai\Test\integruotos programavimo aplinkos\integruotos programavimo aplinkos\bin\Debug\integruotos programavimo aplinkos.exe
+C:\Users\Marius\Desktop\Projektai\Test\integruotos programavimo aplinkos\integruotos programavimo aplinkos\bin\Debug\integruotos programavimo aplinkos.pdb
+C:\Users\Marius\Desktop\Projektai\Test\integruotos programavimo aplinkos\integruotos programavimo aplinkos\obj\Debug\integruotos programavimo aplinkos.csprojResolveAssemblyReference.cache
+C:\Users\Marius\Desktop\Projektai\Test\integruotos programavimo aplinkos\integruotos programavimo aplinkos\obj\Debug\integruotos programavimo aplinkos.exe
+C:\Users\Marius\Desktop\Projektai\Test\integruotos programavimo aplinkos\integruotos programavimo aplinkos\obj\Debug\integruotos programavimo aplinkos.pdb

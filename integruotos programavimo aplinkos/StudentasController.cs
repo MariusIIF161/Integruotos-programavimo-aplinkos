@@ -152,14 +152,21 @@ namespace integruotos_programavimo_aplinkos
             try
             {
                 String[] lines = File.ReadAllLines("studentai.txt");
+                bool firstLine = true;
                 foreach(String line in lines)
                 {
                     String[] words = line.Split(' ');
-                    foreach(String word in words)
+                    if(!firstLine)
                     {
-                        String test = "";
-                        if(string.Compare(word, test) != 0) Console.WriteLine(word);
+                        words = words.Where(x => !string.IsNullOrEmpty(x)).ToArray();
+                        this.sarasas.Add(new Studentas(words[0], words[1]));
+                        for(int x=2; x<words.Length - 1;x++)
+                        {
+                            this.sarasas[this.sarasas.Count - 1].setNewPazimys(int.Parse(words[x]));
+                        }
+                        this.sarasas[this.sarasas.Count - 1].setEgzaminas(int.Parse(words[words.Length - 1]));
                     }
+                    firstLine = false;
                 }
             }
             catch (IOException e)

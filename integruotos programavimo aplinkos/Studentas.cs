@@ -22,6 +22,13 @@ namespace integruotos_programavimo_aplinkos
             nd = new List<int>();
         }
 
+        public Studentas (String a, String b)
+        {
+            vardas = a;
+            pavarde = b;
+            nd = new List<int>();
+        }
+
         public String getVardas()
         {
             return this.vardas;

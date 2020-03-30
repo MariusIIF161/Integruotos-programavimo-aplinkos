@@ -77,11 +77,19 @@ namespace integruotos_programavimo_aplinkos
         {
             this.sarasas = this.sarasas.OrderBy(o => o.getVardas()).ToList();
             int a = 1;
+            Console.WriteLine("Vardas          Pavarde         Galutinis(" + formatas + ".)");
+            //47
+            for (int x = 0; x < 47; x++) Console.Write("-");
+            Console.WriteLine("");
             foreach(var stud in this.sarasas)
             {
                 // galutinis = 0.3 * (vidurkis arba mediana) + 0.7 * egzaminas
                 double galutinis = stud.getEgzaminas() * 0.7 + 0.3 * this.vidurkis(formatas, stud.getND());
-                Console.WriteLine(a + ". " + stud.getVardas() + " " + stud.getPavarde() + " " + galutinis);
+                Console.Write(stud.getVardas());
+                for (int x = 0; x < 16 - stud.getVardas().Length; x++) Console.Write(" ");
+                Console.Write(stud.getPavarde());
+                for (int x = 0; x < 16 - stud.getPavarde().Length; x++) Console.Write(" ");
+                Console.WriteLine(galutinis);
                 a++;
             }
         }

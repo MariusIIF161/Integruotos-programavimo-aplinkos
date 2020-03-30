@@ -13,11 +13,11 @@ namespace integruotos_programavimo_aplinkos
 
         public StudentasController() {
             sarasas = new List<Studentas>();
+            this.nuskaitytIsFailo();
         }
 
         public void meniu()
         {
-            this.nuskaitytIsFailo();
             Console.WriteLine("Pasirinkite ka norite daryti");
             Console.WriteLine("1. Prideti nauja studenta");
             Console.WriteLine("2. Isvesti studentu ir ju vidurkiu sarasa");
@@ -75,6 +75,7 @@ namespace integruotos_programavimo_aplinkos
 
         public void isvestiSarasa(string formatas)
         {
+            this.sarasas = this.sarasas.OrderBy(o => o.getVardas()).ToList();
             int a = 1;
             foreach(var stud in this.sarasas)
             {

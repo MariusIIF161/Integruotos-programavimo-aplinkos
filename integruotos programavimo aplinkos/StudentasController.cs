@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace integruotos_programavimo_aplinkos
 {
@@ -16,6 +17,7 @@ namespace integruotos_programavimo_aplinkos
 
         public void meniu()
         {
+            this.nuskaitytIsFailo();
             Console.WriteLine("Pasirinkite ka norite daryti");
             Console.WriteLine("1. Prideti nauja studenta");
             Console.WriteLine("2. Isvesti studentu ir ju vidurkiu sarasa");
@@ -143,6 +145,21 @@ namespace integruotos_programavimo_aplinkos
                 this.sarasas[stud - 1].setNewPazimys(rnd.Next(1, 11));
                 a--; 
             }
+        }
+
+        public void nuskaitytIsFailo()
+        {
+            try
+            {
+                String text = File.ReadAllText("studentai.txt");
+                Console.WriteLine(text);
+            }
+            catch (IOException e)
+            {
+                Console.WriteLine("The file could not be read:");
+                Console.WriteLine(e.Message);
+            }
+            
         }
     }
 }

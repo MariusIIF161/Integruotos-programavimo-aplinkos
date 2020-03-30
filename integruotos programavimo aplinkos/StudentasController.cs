@@ -151,8 +151,16 @@ namespace integruotos_programavimo_aplinkos
         {
             try
             {
-                String text = File.ReadAllText("studentai.txt");
-                Console.WriteLine(text);
+                String[] lines = File.ReadAllLines("studentai.txt");
+                foreach(String line in lines)
+                {
+                    String[] words = line.Split(' ');
+                    foreach(String word in words)
+                    {
+                        String test = "";
+                        if(string.Compare(word, test) != 0) Console.WriteLine(word);
+                    }
+                }
             }
             catch (IOException e)
             {

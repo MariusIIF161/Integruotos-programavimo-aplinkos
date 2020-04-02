@@ -211,8 +211,12 @@ namespace integruotos_programavimo_aplinkos
                 e = rnd.Next(1, 11);
                 f = rnd.Next(1, 11);
                 writeText.WriteLine("Vardas" + i + " Pavarde" + i + " " + a + " " + b + " " + c + " " + d + " " + e + " " + f);
+                if(((a+b+c+d+e)/5)*0.3 + f*0.7 < 5) badPaz.WriteLine("Vardas" + i + " Pavarde" + i + " " + a + " " + b + " " + c + " " + d + " " + e + " " + f);
+                else gerPaz.WriteLine("Vardas" + i + " Pavarde" + i + " " + a + " " + b + " " + c + " " + d + " " + e + " " + f);
             }
             writeText.Close();
+            gerPaz.Close();
+            badPaz.Close();
         }
     }
 }

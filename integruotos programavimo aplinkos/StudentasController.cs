@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
+
 namespace integruotos_programavimo_aplinkos
 {
     class StudentasController
@@ -13,7 +14,7 @@ namespace integruotos_programavimo_aplinkos
 
         public StudentasController() {
             sarasas = new List<Studentas>();
-            this.nuskaitytIsFailo();
+            this.nuskaitytIsFailo("studentai.txt");
         }
 
         public void meniu()
@@ -24,6 +25,7 @@ namespace integruotos_programavimo_aplinkos
             Console.WriteLine("3. Ivesti egzamino rezultatus");
             Console.WriteLine("4. Ivesti namu darbu rezultatus");
             Console.WriteLine("5. Atsitiktinai priskirti pazymi studentui");
+            Console.WriteLine("6. Sugeneruoti faila su studentais [1-10000000]");
             Console.WriteLine("0. Baigti darba");
             int a = int.Parse(Console.ReadLine());
             switch (a)
@@ -46,6 +48,12 @@ namespace integruotos_programavimo_aplinkos
                     break;
                 case 5:
                     this.atsitiktiniaiPazymiai(this.pasirinktiStudenta());
+                    this.meniu();
+                    break;
+                case 6:
+                    Console.WriteLine("Kiek studentu sugeneruoti?");
+                    String temp = Console.ReadLine();
+                    this.failuGeneravimas(temp);
                     this.meniu();
                     break;
                 case 0:
@@ -156,7 +164,7 @@ namespace integruotos_programavimo_aplinkos
             }
         }
 
-        public void nuskaitytIsFailo()
+        public void nuskaitytIsFailo(String file)
         {
             try
             {
@@ -184,6 +192,27 @@ namespace integruotos_programavimo_aplinkos
                 Console.WriteLine(e.Message);
             }
             
+        }
+
+        public void failuGeneravimas(String skaicius)
+        {
+            int sk = int.Parse(skaicius);
+            StreamWriter writeText = new StreamWriter("studentaigen.txt");
+            StreamWriter badPaz = new StreamWriter("blogi.txt");
+            StreamWriter gerPaz = new StreamWriter("geri.txt");
+            Random rnd = new Random();
+            int a, b, c, d, e, f;
+            for (int i = 1 ; i <= sk; i++)
+            {
+                a = rnd.Next(1, 11);
+                b = rnd.Next(1, 11);
+                c = rnd.Next(1, 11);
+                d = rnd.Next(1, 11);
+                e = rnd.Next(1, 11);
+                f = rnd.Next(1, 11);
+                writeText.WriteLine("Vardas" + i + " Pavarde" + i + " " + a + " " + b + " " + c + " " + d + " " + e + " " + f);
+            }
+            writeText.Close();
         }
     }
 }

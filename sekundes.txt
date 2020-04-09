@@ -1,0 +1,5 @@
+1000 studentu - 1s
+10000 studentu - 1s
+100000 studentu - 1s
+1000000 studentu - 2.63s
+10000000 studentu - 30 s

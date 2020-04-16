@@ -23,7 +23,7 @@ v0.4
 
 v0.5
 
-- List:
+-List:
 - Prideti studenta 0.4s-0.7s
 - Pazymio egzamino ivedimas .0000013s
 - Pazymio namu darbo rezultatas .0000015s
@@ -31,7 +31,7 @@ v0.5
 - failo nuskaitymas (pavyzdinis failas moodle) 0.53s
 - vidurkiu isvedimas su pavyzdinio failo studentais 42.008s
 
-- LinkedList:
+-LinkedList:
 - Prideti studenta 0.4s-0.7s
 - Pazymio egzamino ivedimas  .000002s
 - Pazymio namu darbo rezultatas .0000021s
